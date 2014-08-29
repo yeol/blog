@@ -3,7 +3,6 @@
 
 
 ##### [原文地址](http://www.smashingmagazine.com/2014/06/11/building-with-gulp/)
-##### [翻译出处](https://github.com/yeol/blog/blob/master/20140828_building_with_gulp.md)
 原创翻译，有不当的地方欢迎指出。转载请指明出处。谢谢！
 
 ----------
