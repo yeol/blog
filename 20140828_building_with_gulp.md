@@ -3,12 +3,13 @@
 
 
 ##### [原文地址](http://www.smashingmagazine.com/2014/06/11/building-with-gulp/)
+##### [翻译出处](https://github.com/yeol/blog/blob/master/20140828_building_with_gulp.md)
 原创翻译，有不当的地方欢迎指出。转载请指明出处。谢谢！
 
 ----------
 
 
-对网站资源进行优化，并使用不同浏览器测试并不是网站设计过程中最意思的部分，但是这个过程中的很多重复的任务能够使用正确的工具自动完成，从而使效率大大提高，这是让很多开发者觉得有趣的地方。
+对网站资源进行优化，并使用不同浏览器测试并不是网站设计过程中最有意思的部分，但是这个过程中的很多重复的任务能够使用正确的工具自动完成，从而使效率大大提高，这是让很多开发者觉得有趣的地方。
 
 Gulp是一个构建系统，它能通过自动执行常见任务，比如编译预处理CSS，压缩JavaScript和刷新浏览器，来改进网站开发的过程。通过本文，我们将知道如何使用Gulp来改变开发流程，从而使开发更加快速高效。
 
@@ -28,9 +29,11 @@ Gulp是一个可以[在GitHub上](https://github.com/gulpjs/gulp/)找到的开�
 ###Installing Gulp
 
 安装Gulp的过程十分简单。首先，需要在全局安装Gulp包：
+
 `npm install -g gulp`
 
 然后，在项目里面安装Gulp：
+
 `npm install --save-dev gulp`
 
 
@@ -76,7 +79,7 @@ Gulp是一个可以[在GitHub上](https://github.com/gulpjs/gulp/)找到的开�
 在上面的例子中，gulp.src()函数用字符串匹配一个文件或者文件的编号（被称为“glob”）,然后创建一个对象流来代表这些文件，接着传递给uglify()函数，它接受文件对象之后返回有新压缩源文件的文件对象，最后那些输出的文件被输入gulp.dest()函数，并保存下来。
 
 整个数据流动过程如下图所示：
-[![](http://p1.qhimg.com/t01759cebd478ca1a35.png)]
+![](http://p1.qhimg.com/t01759cebd478ca1a35.png)
 
 当只有一个任务的时候，函数并不会起太大的作用。然而，仔细思考下面的代码：
 
@@ -92,7 +95,7 @@ Gulp是一个可以[在GitHub上](https://github.com/gulpjs/gulp/)找到的开�
 在运行这段程序之前，你需要先安装gulp,gulp-jshint,gulp-uglify和gulp-concat。
 
 这个任务会让所有的文件匹配js/*.js（比如js目录下的所有JavaScript文件），并且执行JSHint，然后打印输出结果，取消文件缩进，最后把他们合并起来，保存为build/app.js，整个过程如下图所示：
-[![](http://p0.qhimg.com/t01c6591bd2705a2ee7.png)]
+![](http://p0.qhimg.com/t01c6591bd2705a2ee7.png)
 
 如果你对Grunt 足够熟悉，就会注意到，Gulp和Grunt的工作方式很不一样。Grunt不使用数据流，而是使用文件，对文件执行单个任务然后保存到新的文件中，每个任务都会重复执行所有进程，文件系统频繁的处理任务会导致Grunt的运行速度比Gulp慢。
 
@@ -113,18 +116,22 @@ Gulp使用[node-glob](https://github.com/isaacs/node-glob)来从你指定的glob
 此外，Gulp也有很多其他的特征，但并不常用。如果你想了解更多的特征，请查看[Minimatch](https://github.com/isaacs/minimatch)文档。
 
 js目录下包含了压缩和未压缩的JavaScript文件，现在我们想要创建一个任务来压缩还没有被压缩的文件，我们需要先匹配目录下所有的JavaScript文件，然后排除后缀为.min.js的文件:
+
 `gulp.src(['js/**/*.js', '!js/**/*.min.js'])`
 
 
 ###DEFINING TASKS
 
 gulp.task()函数通常会被用来定义任务。当你定义一个简单的任务时，需要传入任务名字和执行函数两个属性。
+
     gulp.task('greet', function () {
        console.log('Hello world!');
     });
+
 执行gulp greet的结果就是在控制台上打印出“Hello world”.
 
 一个任务有时也可以是一系列任务。假设要定义一个任务build来执行css、js、imgs这三个任务，我们可以通过指定一个任务数组而不是函数来完成。
+
 `gulp.task('build', ['css', 'js', 'imgs']);`
 
 这些任务不是同时进行的，所以你不能认为在js任务开始的时候css任务已经结束了，也可能还没有结束。为了确保一个任务在另一个任务执行前已经结束，可以将函数和任务数组结合起来指定其依赖关系。例如，定义一个css任务，在执行前需要检查greet任务是否已经执行完毕，这样做就是可行的:
@@ -282,11 +289,14 @@ Watcher对象也包含了一些可以调用的方法：
 [BroserSync](http://browsersync.io/)在浏览器中展示变化的功能与LiveReload非常相似，但是它有更多的功能。
 
 当你改变代码的时候，BrowserSync会重新加载页面，或者如果是css文件，会直接添加进css中，页面并不需要再次刷新。这项功能在网站是禁止刷新的时候是很有用的。假设你正在开发单页应用的第4页，刷新页面就会导致你回到开始页。使用LiveReload的话，你就需要在每次改变代码之后还需要点击四次，而当你修改CSS时，插入一些变化时，BrowserSync会直接将需要修改的地方添加进CSS，就不用再点击回退。
-[![](http://p7.qhimg.com/t01b21adb0b23364a0c.gif)]
+
+![](http://p7.qhimg.com/t01b21adb0b23364a0c.gif)
+
 BrowserSync提供了一种在多个浏览器里测试网页的很好方式[（查看大图）](http://p7.qhimg.com/t01b21adb0b23364a0c.gif)。
 
 BrowserSync也可以在不同浏览器之间同步点击翻页、表单操作、滚动位置。你可以在电脑和iPhone上打开不同的浏览器然后进行操作。所有设备上的链接将会随之变化，当你向下滚动页面时，所有设备上页面都会向下滚动（通常还很流畅！）。当你在表单中输入文本时，每个窗口都会有输入。当你不想要这种行为时，也可以把这个功能关闭。
-[![](http://p4.qhimg.com/t011034e5a90ce13015.gif)]
+
+![](http://p4.qhimg.com/t011034e5a90ce13015.gif)
 
 BrowserSync不需要使用浏览器插件，因为它本身就可以给你提供文件。[（查看大图）](http://p4.qhimg.com/t011034e5a90ce13015.gif)
 
@@ -295,6 +305,7 @@ BrowserSync不需要使用浏览器插件，因为它本身就可以为你提供
 实际上BrowserSync对于Gulp并不算一种插件，因为BrowserSync并不像一个插件一样操作文件。然而，[npm上的BrowserSync模块](https://www.npmjs.org/package/browser-sync)能在Gulp上被直接调用。
 
 首先，需要通过npm安装一下：
+
 `npm install --save-dev browser-sync`
 
 然后gulpfile.js会启动BrowserSync并监听文件：
