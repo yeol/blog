@@ -336,7 +336,7 @@ BrowserSync不需要使用浏览器插件，因为它本身就可以为你提供
 
 前面提到过，Gulp是[为数不多](https://gist.github.com/callumacrae/9231589)的使用JavaScript开发的构建工具之一，也有其他不是用JavaScript开发的构建工具，比如Rake，那么我们为什么要选择Gulp呢?
 
-目前最流行的两种使用JavaScript开发的构建工具是Grunt和Gulp。Grunt在[2013年非常流行](http://www.smashingmagazine.com/2013/10/29/get-up-running-grunt/)，因为它彻底改变了许多人开发网站的方式，它有上千种插件可供用户使用，从linting、压缩、合并代码到使用Bower安装程序包,启动Express服务都能办到。这些和Gulp的很不一样，Gulp只有执行单个小任务来处理文件的插件，因为任务都是JavaScript（和Gtunt使用的大型对象不同），根本不需要插件，你只需用传统方法启动一个Express服务就可以了。
+目前最流行的两种使用JavaScript开发的构建工具是Grunt和Gulp。Grunt在[2013年非常流行](http://www.smashingmagazine.com/2013/10/29/get-up-running-grunt/)，因为它彻底改变了许多人开发网站的方式，它有上千种插件可供用户使用，从linting、压缩、合并代码到使用Bower安装程序包,启动Express服务都能办到。这些和Gulp的很不一样，Gulp只有执行单个小任务来处理文件的插件，因为任务都是JavaScript（和Grunt使用的大型对象不同），根本不需要插件，你只需用传统方法启动一个Express服务就可以了。
 
 Grunt任务拥有大量的配置，会引用大量你实际上并不需要的对象属性，但是Gulp里同样的任务也许只有几行。让我们看个简单的Gtuntfile.js，它规定一个将LESS转换为CSS的任务，然后执行[Autoprefixer](https://github.com/ai/autoprefixer):
 
