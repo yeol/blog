@@ -1,0 +1,94 @@
+﻿@charset "utf-8";
+
+html {
+	overflow-y: scroll;
+}
+
+html,body {
+	height: 100%;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+	display: block;
+}
+
+body,input,button,select,textarea,table {
+	font: 12px/1.5 Tahoma,Helvetica,Arial;
+}
+
+body {
+	background-color: #FFF;
+	color: #595959;
+	font-family: "微软雅黑","Microsoft YaHei","宋体",SimSun,"黑体",SimHei;
+}
+
+ul,ol {
+	list-style: none;
+}
+
+img {
+	vertical-align: top;
+	border: 0 none;
+}
+
+input,select {
+	vertical-align: middle;
+}
+
+label,input[type=button],input[type=submit] {
+	cursor: pointer;
+}
+
+button {
+	cursor: pointer;
+	overflow: visible;
+	padding: 0;
+	width: auto;
+	border: 0;
+	background: 0;
+}
+
+textarea {
+	overflow: auto;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	border: 0 none;
+}
+
+a {
+	color: #325E7F;
+}
+
+a:link,a:visited {
+	text-decoration: none;
+}
+
+a:hover,a:active {
+	text-decoration: underline;
+}
+
+.clearfix {
+	*zoom: 1;
+}
+
+.clearfix:after {
+	display: block;
+	clear: both;
+	content: "\0020";
+	visibility: hidden;
+	height: 0;
+}
+
+
+
+
