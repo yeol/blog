@@ -5,7 +5,8 @@
 ##### [原文地址](https://medium.com/samsung-internet-dev/toolbars-keyboards-and-the-viewports-10abcc6c3769)
 ##### [翻译出处](http://www.zcfy.cc/article/2636)
 ##### [翻译：00_悦](http://weibo.com/u/1850506467)
-原创翻译，有不当的地方欢迎指出。转载请指明出处。谢谢！
+原创翻译，有不当的地方欢迎指出。
+发在众成翻译平台上，转载请指明出处。谢谢！
 
 ----------
 
@@ -52,8 +53,8 @@ resize事件在屏幕旋转或者浏览器工具栏显示、隐藏的时候还�
 
 可以通过动态地重写meta标签的viewport来强制浏览器调整布局视口的大小。（但是完全删除这个标签是不可能的。）如下，能在所有浏览器中运行：
 ```
-var metaViewport = document.querySelector('meta[name=viewport]');
-metaViewport.setAttribute('width','380');
+	var metaViewport = document.querySelector('meta[name=viewport]');
+	metaViewport.setAttribute('width','380');
 
 ```
 
